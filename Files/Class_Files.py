@@ -2,90 +2,88 @@ from codrone_edu.drone import *
 
 
 class movement_commands:
-    def mv(drone: Drone):
-        drone.move_forward(100, "cm", 0.50)
+    def mv_pre_keyhole(self: Drone):
+        self.move_forward(100, "cm", 0.50)
 
-    def mv2(drone: Drone):
-        drone.move_forward(150, "cm", 0.50)
+    def mv_Go_Through_Keyhole(self: Drone):
+        self.move_forward(150, "cm", 0.50)
 
-    def up(drone: Drone):
-        drone.set_throttle(50)
-        drone.move(1.8)
+    def up(self: Drone):
+        self.set_throttle(50)
+        self.move(1.8)
 
-    def up2(drone: Drone):
-        drone.set_throttle(50)
-        drone.move(1)
+    def up2(self: Drone):
+        self.set_throttle(50)
+        self.move(1)
 
-    def hvr(drone: Drone):
-        drone.hover(2)
+    def hvr(self: Drone):
+        self.hover(2)
 
-    def dwn(drone: Drone):
-        drone.set_throttle(-0.50)
-        drone.move(1)
+    def dwn(self: Drone):
+        self.set_throttle(-0.50)
+        self.move(1)
 
-    def bck(drone: Drone):
-        drone.move_backward(100, "cm", 0.50)
+    def bck(self: Drone):
+        self.move_backward(100, "cm", 0.50)
         print("Turning Black")
-
 
 class clr:
-    def red(drone: Drone):
-        drone.set_drone_LED(255, 0, 0, 100)
+    def red(self: Drone):
+        self.set_drone_LED(255, 0, 0, 100)
         print("Turning Red")
 
-    def grn(drone: Drone):
-        drone.set_drone_LED(0, 255, 0, 100)
+    def grn(self: Drone):
+        self.set_drone_LED(0, 255, 0, 100)
         print("Turning Green")
 
-    def blu(drone: Drone):
-        drone.set_drone_LED(0, 0, 255, 100)
+    def blu(self: Drone):
+        self.set_drone_LED(0, 0, 255, 100)
         print("Turning Blue")
 
-    def wht(drone: Drone):
-        drone.set_drone_LED(250, 250, 250, 100)
+    def wht(self: Drone):
+        self.set_drone_LED(250, 250, 250, 100)
         print("Turning White")
 
-    def blck(drone: Drone):
-        drone.set_drone_LED(0, 0, 0, 100)
+    def blck(self: Drone):
+        self.set_drone_LED(0, 0, 0, 100)
         print("Turning Black")
 
-
 class segment:
-    def takeoff(drone: Drone):
-        clr.wht(drone)
-        drone.takeoff()
-        movement_commands.hvr(drone)
+    def takeoff(self: Drone):
+        clr.wht(self)
+        self.takeoff()
+        movement_commands.hvr(self)
 
-    def throughArch(drone: Drone):
-        clr.red(drone)
-        movement_commands.mv2(drone)
+    def throughArch(self: Drone):
+        clr.red(self)
+        movement_commands.mv_Go_Through_Keyhole(self)
         time.sleep(5)
-        clr.grn(drone)
-        movement_commands.hvr(drone)
+        clr.grn(self)
+        movement_commands.hvr(self)
 
-    def preKeyhole(drone: Drone):
-        movement_commands.up(drone)
-        movement_commands.hvr(drone)
-        clr.blu(drone)
+    def preKeyhole(self: Drone):
+        movement_commands.up(self)
+        movement_commands.hvr(self)
+        clr.blu(self)
 
-    def returnToTakeoff(drone: Drone):
-        movement_commands.hvr(drone)
-        movement_commands.bck(drone)
-        clr.wht(drone)
-        movement_commands.hvr(drone)
+    def returnToTakeoff(self: Drone):
+        movement_commands.hvr(self)
+        movement_commands.bck(self)
+        clr.wht(self)
+        movement_commands.hvr(self)
 
-    def land(drone: Drone):
-        drone.land()
-        clr.blck(drone)
+    def land(self: Drone):
+        self.land()
+        clr.blck(self)
 
-    def keyhole(drone: Drone):
-        movement_commands.mv(drone)
-        movement_commands.hvr(drone)
+    def keyhole(self: Drone):
+        movement_commands.mv_pre_keyhole(self)
+        movement_commands.hvr(self)
         # time.sleep(2)
 
         # movement_commands.up2(drone)
 
-        movement_commands.dwn(drone)
+        movement_commands.dwn(self)
 
-        movement_commands.bck(drone)
-        drone.land()
+        movement_commands.bck(self)
+        self.land()

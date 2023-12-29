@@ -1,7 +1,7 @@
 from codrone_edu.drone import *
 
-drone = Drone()
-drone.pair()
+# drone = Drone()
+# drone.pair()
 
 
 def play(da_drone: Drone):
@@ -17,21 +17,19 @@ def play(da_drone: Drone):
             da_drone.set_drone_LED(255, 0, 0, 150)
 
         elif color[0] == "lightblue":
-            da_drone.set_drone_LED(0, 255, 255, 150)
+            da_drone.set_drone_LED(0, 0, 255, 150)
 
         elif color[0] == "green":
             da_drone.set_drone_LED(0, 128, 0, 150)
         elif color[0] == "purple":
-            da_drone.set_drone_LED(160, 32, 240, 150)
+            da_drone.set_drone_LED(0, 0, 255, 150)
         elif color[0] == "blue":
             da_drone.set_drone_LED(0, 0, 255, 150)
         elif color[0] == "yellow":
-            da_drone.set_drone_LED(255, 255, 0, 150)
+            da_drone.set_drone_LED(0, 255, 0, 150)
         elif color[0] == "black":
-            da_drone.set_drone_LED(0, 0, 0, 150)
+            da_drone.set_drone_LED(0, 0, 255, 150)
         elif color[0] == "white":
-            da_drone.set_drone_LED(255, 255, 255, 150)
+            da_drone.set_drone_LED(0, 0, 255, 150)
         elif color[0] == "_":
-            da_drone.set_drone_LED(255, 255, 255, 150)  # white
-
-
+            da_drone.set_drone_LED(0, 0, 255, 150)  # blue

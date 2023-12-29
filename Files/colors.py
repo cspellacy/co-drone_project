@@ -10,7 +10,7 @@ for color in colors:
     samples = 500
 
     for \
-        i in range(1):
+            i in range(1):
         print("Sample: ", i + 1)
         next = input("Press enter to calibrate " + color)
         print("0% ", end="")
